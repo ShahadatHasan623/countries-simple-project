@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const Country = ({country}) => {
+const Country = ({country,handlerVisitedCountries}) => {
     const {name,flags,population,region,area}=country
 
     const [visited,setVisited]=useState(false)
@@ -12,6 +12,7 @@ const Country = ({country}) => {
         else{
             setVisited(true)
         }
+        handlerVisitedCountries(country)
     }
     return (
         <div className={`border ${visited && `visited-bg`}`} >
